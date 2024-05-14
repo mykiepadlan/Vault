@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="C:\Users\Gwen\Downloads\The Vault\gif\The Vault Logo Header.gif" alt="The Vault Logo">
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#vault-treasures">Vault Treasures</a></li>
+                <li><a href="#registration">Registration</a></li>
+                <li><a href="#contact-us">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Your Shopping Cart</h1>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="total-price" id="totalPrice">Total: ₱0.00</div>
+        <button class="checkout-btn">Checkout</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+<style>
+    /* Add styles for shopping cart page */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.cart-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.cart-item img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.total-price {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.checkout-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1C1F25;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background-color: #333;
+}
+
+</style>
+<script>
+    let cartItems = [];
+
+function addToCart(key) {
+    let product = products[key];
+    let existingItem = cartItems.find(item => item.id === product.id);
+
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cartItems.push({
+            id: product.id,
+            name: product.name,
+            artist: product.artist,
+            quantity: 1,
+            price: product.price
+        });
+    }
+
+    renderCart();
+}
+
+function renderCart() {
+    let cartItemsDiv = document.getElementById("cartItems");
+    cartItemsDiv.innerHTML = "";
+
+    let totalPrice = 0;
+
+    cartItems.forEach(item => {
+        let itemDiv = document.createElement("div");
+        itemDiv.classList.add("cart-item");
+
+        itemDiv.innerHTML = `
+            <img src="images/${item.image}" alt="${item.name}">
+            <div class="item-details">
+                <h3>${item.name}</h3>
+                <p>Artist: ${item.artist}</p>
+                <p>Quantity: ${item.quantity}</p>
+                <p>Price: ₱${(item.price * item.quantity).toFixed(2)}</p>
+            </div>
+        `;
+
+        cartItemsDiv.appendChild(itemDiv);
+
+        totalPrice += item.price * item.quantity;
+    });
+
+    document.getElementById("totalPrice").textContent = `Total: ₱${totalPrice.toFixed(2)}`;
+}
+
+</script>
+</html>

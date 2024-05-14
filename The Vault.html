@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>The Vault </title>
+      <link rel="stylesheet" href="styles.css">
+
+<!--CSS-->
+<style>
+/*HEADER*/
+    .header {
+      background-color: #341B19;
+      display: flex;
+      align-items: center;
+     /* justify-content: space-between; */
+    }
+
+/*HEADER: LOGO*/
+    .logo {
+      display: flex;
+      align-items: center; 
+    }
+
+    .logo img {
+      height: 90px;
+      margin-right: 20px;
+      padding-left: 30px;
+    }
+    
+/*NAVIGATION*/
+    .nav {
+      margin-left: auto; 
+    }
+
+    .nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    .nav ul li:last-child {
+      margin-right: 0;
+    }
+
+    .nav ul li a {
+      text-decoration: none;
+      color: #D9D9D9;
+      font-weight: bold;
+    }
+
+/*ADD TO CART*/
+    .cart-logo img{
+      height: 100px;
+      padding-left: 10px;
+    }
+
+/*BODY*/
+    body {
+      margin: 10;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+/*BANNER*/
+    .new-release {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+      margin-bottom: .0%;
+      color: #AD6649;
+    }
+    .unravel {
+      font-family: "Copperplate", sans-serif;
+      font-size: 70px;
+      margin-top: 0%;
+      margin-bottom: 0%;
+    }
+
+    .unravel-desc{
+      font-family: Arial, Helvetica, sans-serif ;
+      color:rgb(110, 100, 100) ;
+      margin-top: 0%;
+    }
+
+    .container {
+      display: flex;
+      position: relative;
+    }
+
+    .left-column {
+      flex: 40;
+      background-color: #DDD1C8;
+      padding: 20px;
+      height: 80vh;
+      
+    }
+
+    .middle-column {
+      flex: 25;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 40%, rgb(42, 42, 42) 80%, rgb(38, 37, 37) 100%);
+      background-size: 200% 100%; /* Adjust the background size to control the zoom level */
+      background-position: right; /* Adjust the background position to control which side is visible */
+      position: relative;
+    }
+
+    .vinyl-container {
+      position: relative;
+      top: 15; 
+      right: 48%;
+    }
+
+    .vinyl {
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      border: 3px solid #6d6c6c;
+      animation: rotate 5s linear infinite;
+    }
+
+/*BANNER: VINYL*/
+    .music-player {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+/*BANNER: VINYL PLAY BUTTON*/
+    .play-btn {
+      background-color: transparent; 
+      border: none;
+      font-size: 2rem;
+      color: #AD6649; 
+      font-size: smaller;
+      cursor: pointer;
+      position: absolute;
+      top: 100%;
+      right: 10%; 
+      transform: translate(0, -50%);
+    }
+</style>
+</head>
+
+<!--HTML-->
+<body>
+  <!--HEADER : LOGO-->
+    <header class="header">
+      <div class="logo">
+          <img src="C:\Users\Gwen\Downloads\The Vault\gif\The Vault Logo Header.gif" alt="The Vault Logo">
+        </div>
+  <!--HEADER: NAVIGATION -->
+    <nav class="nav">
+      <ul>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#vault-treasures">Vault Treasures</a></li>
+            <li><a href="#registration">Registration</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
+      </ul>
+    </nav>
+  <!--HEADER: ADD TO CART -->
+    <div class="cart-logo">
+        <img src="C:\Users\Gwen\Downloads\The Vault\Images\Cart Logo.png" alt="Cart Logo">
+    </div>
+</header>
+
+  <!--BANNER-->
+    <div class="container">
+        <div class="left-column">
+      <Br><Br><Br><Br><Br><Br><Br><Br>
+          <h2 class ="new-release"> NEW RELEASE</h3>
+          <h1 class="unravel">UNRAVEL ME</h1>
+          <p class="unravel-desc">The ethereal “Unravel Me” reveals Claudio's commitment issues and <br>
+              underlying insecurities throughout a relationship. The track unearths the Virgo <br>
+              in Claudio as she bears her gentle indecisiveness and timidness in pursuing <br>
+              connections. The track was accompanied by a sensual music video that <br>
+              features the vulnerable songstress covered in pastel flowers and hypnotic <br>
+              butterflies.</p>
+            <button class="order-btn">Order Now &#9658;</button>
+        </div>
+  <!--VINYL & AUDIO-->
+        <div class="middle-column">
+         
+          <div class="vinyl-container">
+            <img src="C:\Users\Gwen\Downloads\The Vault\Images\Blond CD Player.png" class="vinyl" alt="Vinyl Record">
+
+            <audio id="bg-music" autoplay loop>
+              <source src= "C:\Users\Gwen\Downloads\The Vault\Mp3\Sabrina Claudio - Unravel Me (Official Video).mp3" type="audio/mpeg">
+            </audio>
+<!-- PLAY BUTTON -->
+            <button class="play-btn">&#9654; Play Button</button> 
+          </div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+
+<!-- JAVASCRIPT -->
+<script>
+  const playBtn = document.querySelector('.play-btn');
+  const bgMusic = document.getElementById('bg-music');
+  const vinyl = document.querySelector('.vinyl');
+
+  playBtn.addEventListener('click', () => {
+    if (bgMusic.paused) 
+    {
+      bgMusic.play();
+    } 
+    else 
+    {
+      bgMusic.pause();
+    }
+  });
+
+
+</script>
+</html>
